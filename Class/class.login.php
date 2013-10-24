@@ -206,7 +206,7 @@
 
 		//Permission Check.
 		private function PermissionCheck($Level){
-			$Query = " Permission = '$Level' AND ".$this->Permission_UniqueField." = '".$this->UniqueID."' ";
+			$Query = $this->Permission_CodeField." = '$Level' AND ".$this->Permission_UniqueField." = '".$this->UniqueID."' ";
 			$Verify = LoginSystem::VerifyInformation($this->Permission_UniqueField,$this->Permission_TableName,$Query);
 			if($Verify[0] == 0){
 				header('Location: '.$this->Permission_Denied);
